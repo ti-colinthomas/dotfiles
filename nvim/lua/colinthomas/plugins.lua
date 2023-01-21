@@ -49,4 +49,14 @@ packer.startup(function(use)
   use 'windwp/nvim-autopairs' -- Auto open/close pairs
   use 'windwp/nvim-ts-autotag'
 
+  use {
+    'neovim/nvim-lspconfig', -- LSP
+    requires = {
+      { 'hrsh7th/nvim-cmp' }, -- Completion
+      { 'hrsh7th/cmp-nvim-lsp' }, -- Completion
+      { 'hrsh7th/cmp-buffer' }, -- Completion from file
+      { 'hrsh7th/cmp-path' }, -- Completion for path
+      { 'L3MON4D3/LuaSnip' } -- Snippets
+    }
+  }
 end)
