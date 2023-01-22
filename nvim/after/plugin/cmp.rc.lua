@@ -1,10 +1,35 @@
 local status, cmp = pcall(require, "cmp")
 if (not status) then return end
 
+local luasnip_status, luasnip = pcall(require, 'luasnip')
+if (not luasnip_status) then return end
+
+local function border(hl_name)
+  return {
+    { "╭", hl_name },
+    { "─", hl_name },
+    { "╮", hl_name },
+    { "│", hl_name },
+    { "╯", hl_name },
+    { "─", hl_name },
+    { "╰", hl_name },
+    { "│", hl_name },
+  }
+end
+
 cmp.setup({
+  window = {
+    completion = {
+      border = border "CmpBorder",
+      winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+    },
+    documentation = {
+      border = border "CmpDocBorder",
+    },
+  },
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = cmp.mapping.preset.insert({
@@ -17,17 +42,20 @@ cmp.setup({
       select = true
     }),
   }),
-  -- sources = cmp.config.sources({
-  --   { name = 'nvim_lsp' },
-  --   { name = 'buffer' },
-  -- }),
   sources = cmp.config.sources({
+    { name = 'luasnip' },
     { name = 'nvim_lsp' },
-    { name = 'vsnip' }, -- For vsnip users.
-    { name = 'luasnip' }, -- For luasnip users.
+    { name = 'path' },
+    -- { name = 'vsnip' }, -- For vsnip users.
+    -- { name = 'luasnip', option = { use_show_condition = true } }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
   }, {
     { name = 'buffer' },
   })
 })
+
+vim.cmd [[
+  set completeopt=menuone,preview,noselect,noinsert
+  highlight! default link CmpItemKind CmpItemMenuDefault
+]]

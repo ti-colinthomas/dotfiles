@@ -56,7 +56,9 @@ packer.startup(function(use)
       { 'hrsh7th/cmp-nvim-lsp' }, -- Completion
       { 'hrsh7th/cmp-buffer' }, -- Completion from file
       { 'hrsh7th/cmp-path' }, -- Completion for path
-      { 'L3MON4D3/LuaSnip' } -- Snippets
+      { 'L3MON4D3/LuaSnip' }, -- Snippets
+      { 'saadparwaiz1/cmp_luasnip' }, -- Use luasnip as a completion source
+      { 'rafamadriz/friendly-snippets' } -- Snippets
     }
   }
 end)
