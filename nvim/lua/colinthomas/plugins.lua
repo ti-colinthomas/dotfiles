@@ -61,4 +61,9 @@ packer.startup(function(use)
       { 'rafamadriz/friendly-snippets' } -- Snippets
     }
   }
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    tag = 'release'
+  }
 end)
