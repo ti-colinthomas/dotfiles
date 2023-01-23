@@ -66,4 +66,11 @@ packer.startup(function(use)
     'lewis6991/gitsigns.nvim',
     tag = 'release'
   }
+
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = {
+      { 'nvim-lua/plenary.nvim' }
+    }
+  }
 end)
