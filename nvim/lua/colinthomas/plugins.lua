@@ -63,14 +63,23 @@ packer.startup(function(use)
   }
 
   use {
-    'lewis6991/gitsigns.nvim',
+    'lewis6991/gitsigns.nvim', -- Git signs in the gutter
     tag = 'release'
   }
 
   use {
-    'jose-elias-alvarez/null-ls.nvim',
+    'jose-elias-alvarez/null-ls.nvim', -- For formatting
     requires = {
       { 'nvim-lua/plenary.nvim' }
+    }
+  }
+
+  use {
+    'jackMort/ChatGPT.nvim',
+    requires = {
+      { 'MunifTanjim/nui.nvim' },
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-telescope/telescope.nvim' }
     }
   }
 end)
