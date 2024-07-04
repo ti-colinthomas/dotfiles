@@ -9,3 +9,6 @@ UI used across all applications
 
 Configuration added for
 - Alacritty
+- Oh My Posh
+	- Block added for transient prompt
+
