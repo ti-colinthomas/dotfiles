@@ -11,4 +11,6 @@ Configuration added for
 - Alacritty
 - Oh My Posh
 	- Block added for transient prompt
-
+- Starship
+	- With transient prompt
+- Tmux
