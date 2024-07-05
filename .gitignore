@@ -1,2 +1,9 @@
 # Directory for fish config
 fish/*
+
+# Remove tmux plugins directory
+tmux/plugins
+
+# Remove any logs
+*.log
+**/*.log
