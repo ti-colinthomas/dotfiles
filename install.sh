@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env fish
 # Stow
 sudo apt install stow -y
 cd $HOME/.dotfiles
