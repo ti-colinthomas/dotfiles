@@ -1,5 +1,5 @@
 ### Install fish and setup default shell
-```console
+```shell
 sudo apt-add-repository ppa:fish-shell/release-3  
 sudo apt update
 sudo apt -y install fish
@@ -9,7 +9,7 @@ fish && exit
 ```
 
 ### Install starship
-```console
+```shell
 curl -sS https://starship.rs/install.sh | sh
 echo -e "\n" >> $HOME/.config/fish/config.fish
 echo "# Init Starship" >> $HOME/.config/fish/config.fish
@@ -20,7 +20,7 @@ fish && exit
 ```
 
 ### Clone dotfiles and stow them
-```console
+```shell
 git clone https://github.com/ti-colinthomas/dotfiles.git $HOME/.dotfiles
 sudo apt -y install stow
 cd $HOME/.dotfiles
@@ -29,7 +29,7 @@ cd $HOME
 ```
 
 ### Install Zoxide
-```console
+```shell
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 echo -e "\n" >> $HOME/.config/fish/config.fish
 echo "# Init Zoxide" >> $HOME/.config/fish/config.fish
@@ -40,7 +40,7 @@ fish && exit
 ```
 
 ### Install fzf
-```console
+```shell
 mkdir $HOME/.sources
 git clone https://github.com/junegunn/fzf.git $HOME/.sources/fzf
 $HOME/.sources/fzf/install
@@ -49,17 +49,17 @@ fish && exit
 ```
 
 ### Install Fisher
-```
+```shell
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 ```
 
 ### Install Tmux
-```
+```shell
 sudo apt -y install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 ### Neovim
-```
+```shell
 sudo snap install --beta nvim --classic
 ```

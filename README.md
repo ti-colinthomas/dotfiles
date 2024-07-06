@@ -18,7 +18,7 @@ Configuration added for
 
 ### Creating a VM
 Create a multipass VM. Cloud init yaml has configuration to install fish shell
-```console
+```shell
 multipass launch docker -v \
   --name primary \
   --cpus 4 \
@@ -27,7 +27,7 @@ multipass launch docker -v \
 ```
 
 Optionally you can also change the directory that is shared. By default multipass shares the entire home folder of the host.
-```
+```shell
 echo "umount default dir"
 multipass umount primary:primary
 rm -rf ~/multipass
@@ -36,3 +36,5 @@ multipass exec primary -- rm -rfv /home/ubuntu/primary
 echo "mount ~/code"
 multipass mount ~/code primary:~/code
 ```
+
+Instructions for further installation can be found [here](INSTALLATION.md)
