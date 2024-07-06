@@ -1,3 +1,5 @@
+network-cache/
+
 # Directory for fish config
 fish/*
 **/fish/*

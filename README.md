@@ -24,18 +24,15 @@ multipass launch docker -v \
   --cpus 4 \
   --memory 8G \
   --disk 50G \
-  --cloud-init https://raw.githubusercontent.com/ti-colinthomas/dotfiles/main/init.yaml
-```
-After creation of VM use the below command to change the default shell to fish
-```console
-chsh -s $(which fish)
 ```
 
+Optionally you can also change the directory that is shared. By default multipass shares the entire home folder of the host.
+```
+echo "umount default dir"
+multipass umount primary:primary
+rm -rf ~/multipass
+multipass exec primary -- rm -rfv /home/ubuntu/primary
 
-### Installation
-This installation assumes that you already have fish shell installed
-```console
-git clone https://github.com/ti-colinthomas/dotfiles.git $HOME/.dotfiles
-cd $HOME/.dotfiles && chmod u+x install.sh
-cd $HOME/.dotfiles && ./install.sh
+echo "mount ~/code"
+multipass mount ~/code primary:~/code
 ```
