@@ -14,3 +14,10 @@ Configuration added for
 - Starship
 	- With transient prompt
 - Tmux
+
+### Installation
+```console
+git clone https://github.com/ti-colinthomas/dotfiles.git $HOME/.dotfiles
+cd $HOME/dotfiles && chmod u+x install.sh
+cd $HOME/dotfiles && ./install.sh
+```
