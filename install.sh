@@ -1,13 +1,4 @@
 #!/bin/bash
-
-# Installing fish shell
-sudo apt-add-repository ppa:fish-shell/release-3  
-sudo apt update
-sudo apt install fish -y
-sudo passwd ubuntu
-chsh -s $(which fish)
-fish && exit
-
 # Stow
 sudo apt install stow -y
 cd $HOME/.dotfiles

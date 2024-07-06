@@ -1,0 +1,10 @@
+package_update: true
+apt:
+  preserve_sources_list: true
+  sources:
+    source: deb https://ppa.launchpadcontent.net/fish-shell/release-3/ubuntu jammy main
+    keyid: 59FDA1CE1B84B3FAD89366C027557F056DC33CA5
+packages:
+  - git
+  - curl
+  - fish
