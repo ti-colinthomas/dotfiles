@@ -1,37 +1,40 @@
-#!/usr/bin/env fish
+#!/bin/bash
 # Stow
 sudo apt install stow -y
 cd $HOME/.dotfiles
 stow .
 cd $HOME
 
+# Setup password
+sudo passwd ubuntu
+
 # Starship
 curl -sS https://starship.rs/install.sh | sh
-echo -e "\n" >> $HOME/.config/fish/config.fish
-echo "# Init Starship" >> $HOME/.config/fish/config.fish
-echo "starship init fish | source" >> $HOME/.config/fish/config.fish
-echo "enable_transience" >> $HOME/.config/fish/config.fish
-set -Ux STARSHIP_CONFIG $HOME/.config/starship.toml
+echo -e "\n" >> $HOME/.profile
+echo "# Initializing starship" >> $HOME/.profile
+echo 'eval "$(starship init bash)"' >> $HOME/.profile
+source $HOME/.profile
 
 # Zoxide
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-fish_add_path $HOME/.local/bin
-echo -e "\n" >> $HOME/.config/fish/config.fish
-echo "# Init Zoxide" >> $HOME/.config/fish/config.fish
-echo "zoxide init fish --cmd cd| source" >> $HOME/.config/fish/config.fish
+echo "Adding ~/.local/bin to \$PATH"
+PATH=$PATH:$HOME/.local/bin
+echo -e "\n" >> $HOME/.profile
+echo "# Initializing Zoxide" >> $HOME/.profile
+echo 'eval "$(zoxide init bash --cmd cd)"' >> $HOME/.profile
+source $HOME/.profile
 
 # fzf
-mkdir $HOME/.sources
-git clone https://github.com/junegunn/fzf.git $HOME/.sources/fzf
-$HOME/.sources/fzf/install
-rm $HOME/.fzf.bash
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.sources/fzf
+~/.sources/fzf/install
+echo '[ -f ~/.fzf.bash ] && source ~/.fzf.bash' >> $HOME/.profile
 
-# Fisher
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+# If completions were added to .bashrc the below line will delete it
+sed -i '$ d' $HOME/.bashrc
 
 # Tmux
-sudo apt install tmux -y
+# sudo apt install tmux -y
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Neovim
-sudo snap install --beta nvim --classic
+sudo snap install nvim --classic

@@ -23,7 +23,7 @@ multipass launch docker -v \
   --name primary \
   --cpus 4 \
   --memory 8G \
-  --disk 50G \
+  --disk 50G
 ```
 
 Optionally you can also change the directory that is shared. By default multipass shares the entire home folder of the host.

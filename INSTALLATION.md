@@ -1,25 +1,4 @@
-### Install fish and setup default shell
-```shell
-sudo apt-add-repository ppa:fish-shell/release-3  
-sudo apt update
-sudo apt -y install fish
-sudo passwd ubuntu
-chsh -s $(which fish)
-fish && exit
-```
-
-### Install starship
-```shell
-curl -sS https://starship.rs/install.sh | sh
-echo -e "\n" >> $HOME/.config/fish/config.fish
-echo "# Init Starship" >> $HOME/.config/fish/config.fish
-echo "starship init fish | source" >> $HOME/.config/fish/config.fish
-echo "enable_transience" >> $HOME/.config/fish/config.fish
-set -Ux STARSHIP_CONFIG $HOME/.config/starship.toml
-fish && exit
-```
-
-### Clone dotfiles and stow them
+# Cloning dotfiles and stowing it
 ```shell
 git clone https://github.com/ti-colinthomas/dotfiles.git $HOME/.dotfiles
 sudo apt -y install stow
@@ -28,38 +7,51 @@ stow .
 cd $HOME
 ```
 
-### Install Zoxide
+# Setup password
+# This is required for some of the items below like starship.rs
+```
+sudo passwd ubuntu
+```
+
+# Install starship
+```shell
+curl -sS https://starship.rs/install.sh | sh
+echo -e "\n" >> $HOME/.profile
+echo "# Initializing starship" >> $HOME/.profile
+echo 'eval "$(starship init bash)"' >> $HOME/.profile
+source $HOME/.profile
+```
+
+# Install Zoxide
 ```shell
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-echo -e "\n" >> $HOME/.config/fish/config.fish
-echo "# Init Zoxide" >> $HOME/.config/fish/config.fish
-echo "zoxide init fish --cmd cd | source" >> $HOME/.config/fish/config.fish
-echo "Adding $HOME/.local/bin to \$PATH"
-fish_add_path $HOME/.local/bin
-fish && exit
+echo "Adding ~/.local/bin to \$PATH"
+PATH=$PATH:$HOME/.local/bin
+echo -e "\n" >> $HOME/.profile
+echo "# Initializing Zoxide" >> $HOME/.profile
+echo 'eval "$(zoxide init bash --cmd cd)"' >> $HOME/.profile
+source $HOME/.profile
 ```
 
-### Install fzf
+# Install fzf
 ```shell
-mkdir $HOME/.sources
-git clone https://github.com/junegunn/fzf.git $HOME/.sources/fzf
-$HOME/.sources/fzf/install
-rm $HOME/.fzf.bash
-fish && exit
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.sources/fzf
+~/.sources/fzf/install
+echo '[ -f ~/.fzf.bash ] && source ~/.fzf.bash' >> $HOME/.profile
+
+# If completions were added to .bashrc the below line will delete it
+sed -i '$ d' $HOME/.bashrc
 ```
 
-### Install Fisher
-```shell
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-```
-
-### Install Tmux
+# Install Tmux
 ```shell
 sudo apt -y install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
+# TODO: After installing the catppuccin theme change the round statusbar to rect
+# file: ~/.config/tmux/plugins/tmux/catppuccin.tmux
 
-### Neovim
+# Install Neovim
 ```shell
-sudo snap install --beta nvim --classic
+sudo snap install nvim --classic
 ```
