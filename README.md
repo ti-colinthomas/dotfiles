@@ -14,6 +14,9 @@ Configuration added for
 - Starship
 	- With transient prompt
 - Tmux
+- fzf
+- Neovim
+- NVM
 
 
 ### Creating a VM
