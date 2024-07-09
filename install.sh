@@ -36,5 +36,9 @@ sed -i '$ d' $HOME/.bashrc
 # sudo apt install tmux -y
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+# Nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
 # Neovim
 sudo snap install nvim --classic
+sudo apt-get -y install ripgrep unzip build-essential
