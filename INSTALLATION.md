@@ -55,3 +55,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```shell
 sudo snap install nvim --classic
 ```
+
+# Neovim dependencies
+# For Telescope
+```shell
+sudo apt-get -y install fd-find
+ln -s $(which fdfind) $HOME/.local/bin/fd
+```

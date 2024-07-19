@@ -41,4 +41,4 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 # Neovim
 sudo snap install nvim --classic
-sudo apt-get -y install ripgrep unzip build-essential
+sudo apt-get -y install ripgrep unzip build-essential fd-find
