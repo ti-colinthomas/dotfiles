@@ -1,0 +1,12 @@
+[user]
+	name = Colin Thomas
+	email = colin@avaamo.com
+
+[core]
+	editor = nvim
+
+[color]
+	ui = auto
+
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
