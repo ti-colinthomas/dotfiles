@@ -7,7 +7,7 @@ if ! brew list --formula | grep -q "^stow$"; then
 fi
 stow .
 
-# Required environment variables for this script
+# Required environment variables
 source $HOME/.zshenv
 
 # Local variables

@@ -7,3 +7,6 @@ fi
 alias ls="eza"
 alias ll="eza -alh"
 alias tree="eza --tree"
+
+# Source zshenv
+source ~/.zshenv
