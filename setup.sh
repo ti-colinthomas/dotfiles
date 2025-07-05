@@ -56,6 +56,7 @@ fi
 # delta
 if ! brew list --formula | grep -q "^git-delta$"; then
 	brew install git-delta
+	mkdir -p "$CONFIG_DIR/delta/themes"
 	wget -P "$CONFIG_DIR/delta/themes" https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig 
 fi
 
@@ -67,6 +68,16 @@ fi
 # OMP
 if ! brew list --formula | grep -q "^oh-my-posh$"; then
 	brew install jandedobbeleer/oh-my-posh/oh-my-posh
+fi
+
+# Eza
+if ! brew list --formula | grep -q "^eza$"; then
+	brew install eza
+	# Configure eza
+	echo 'export EZA_CONFIG_DIR=$HOME/.config/eza' >> $HOME/.zshenv
+	source $HOME/.zshenv
+	mkdir -p "$CONFIG_DIR/eza"
+	wget -O "$CONFIG_DIR/eza/theme.yml" https://raw.githubusercontent.com/eza-community/eza-themes/refs/heads/main/themes/catppuccin.yml
 fi
 
 # Stow
