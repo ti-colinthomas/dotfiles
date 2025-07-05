@@ -1,6 +1,16 @@
 #!/bin/bash
 
-# VARS
+# Stow
+# Creates the directory structure
+if ! brew list --formula | grep -q "^stow$"; then
+	brew install stow
+fi
+stow .
+
+# Required environment variables for this script
+source $HOME/.zshenv
+
+# Local variables
 CONFIG_DIR="./.config"
 
 # Exit on error
@@ -44,13 +54,9 @@ if ! brew list --formula | grep -q "^bat$"; then
 	echo 'Installing bat'
 	brew install bat
 	# Setup bat
-	echo 'export BAT_CONFIG_PATH="$HOME/.config/bat/bat.conf"' >> $HOME/.zshenv
-	source $HOME/.zshenv
 	mkdir -p "$(bat --config-dir)/themes"
 	wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
 	bat cache --build
-	echo 'export BAT_THEME="Catppuccin Mocha"' >> $HOME/.zshenv
-	source $HOME/.zshenv
 fi
 
 # delta
@@ -74,14 +80,7 @@ fi
 if ! brew list --formula | grep -q "^eza$"; then
 	brew install eza
 	# Configure eza
-	echo 'export EZA_CONFIG_DIR=$HOME/.config/eza' >> $HOME/.zshenv
-	source $HOME/.zshenv
 	mkdir -p "$CONFIG_DIR/eza"
 	wget -O "$CONFIG_DIR/eza/theme.yml" https://raw.githubusercontent.com/eza-community/eza-themes/refs/heads/main/themes/catppuccin.yml
 fi
 
-# Stow
-if ! brew list --formula | grep -q "^stow$"; then
-	brew install stow
-fi
-stow .
