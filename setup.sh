@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# VARS
+CONFIG_DIR="./.config"
+
 # Exit on error
 set -e
 
@@ -25,13 +28,13 @@ fi
 
 # Fonts
 echo 'Checking fonts'
-if ! brew list --formula | grep -q "^font-ubuntu-sans-nerd-font$"; then
+if ! brew list --formula | grep -q "^font-ubuntu-sans"; then
 	brew install font-ubuntu-sans-nerd-font
 fi
-if ! brew list --formula | grep -q "^font-sauce-code-pro-nerd-font$"; then
+if ! brew list --formula | grep -q "^font-sauce-code"; then
 	brew install font-sauce-code-pro-nerd-font
 fi
-if ! brew list --formula | grep -q "^font-jetbrains-mono-nerd-font$"; then
+if ! brew list --formula | grep -q "^font-jetbrains$"; then
 	brew install font-jetbrains-mono-nerd-font
 fi
 
@@ -48,6 +51,12 @@ if ! brew list --formula | grep -q "^bat$"; then
 	bat cache --build
 	echo 'export BAT_THEME="Catppuccin Mocha"' >> $HOME/.zshenv
 	source $HOME/.zshenv
+fi
+
+# delta
+if ! brew list --formula | grep -q "^git-delta$"; then
+	brew install git-delta
+	wget -P "$CONFIG_DIR/delta/themes" https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig 
 fi
 
 # fzf
