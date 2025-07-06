@@ -5,7 +5,7 @@ fi
 
 # Alias
 alias ls="eza"
-alias ll="eza -alh"
+alias ll="eza --git --git-repos -alh"
 alias tree="eza --tree"
 
 # Source zshenv
