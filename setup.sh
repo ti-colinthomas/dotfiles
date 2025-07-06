@@ -75,6 +75,12 @@ if ! brew list --formula | grep -q "^fzf$"; then
 	brew install fzf
 fi
 
+echo 'fd'
+# fd
+if ! brew list --formula | grep -q "^fd$"; then
+	brew install fd
+fi
+
 echo 'oh-my-posh'
 # OMP
 if ! brew list --formula | grep -q "^oh-my-posh$"; then

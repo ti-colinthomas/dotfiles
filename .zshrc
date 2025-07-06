@@ -8,5 +8,9 @@ alias ls="eza"
 alias ll="eza --git --git-repos -alh"
 alias tree="eza --tree"
 
+# fzf
+# Setup key bindings
+eval "$(fzf --zsh)"
+
 # Source zshenv
 source ~/.zshenv
