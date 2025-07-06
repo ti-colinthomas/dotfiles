@@ -38,16 +38,18 @@ fi
 
 # Fonts
 echo 'Checking fonts'
-if ! brew list --formula | grep -q "^font-ubuntu-sans"; then
+if ! brew list --cask | grep -q "^font-ubuntu-sans-nerd-font"; then
 	brew install font-ubuntu-sans-nerd-font
 fi
-if ! brew list --formula | grep -q "^font-sauce-code"; then
+if ! brew list --cask | grep -q "^font-sauce-code-pro-nerd-font"; then
 	brew install font-sauce-code-pro-nerd-font
 fi
-if ! brew list --formula | grep -q "^font-jetbrains$"; then
+if ! brew list --cask | grep -q "^font-jetbrains-mono-nerd-font$"; then
 	brew install font-jetbrains-mono-nerd-font
 fi
 
+echo 'Installing and configuring tools'
+echo 'bat'
 # bat
 if ! brew list --formula | grep -q "^bat$"; then
 	# Install bat
@@ -59,6 +61,7 @@ if ! brew list --formula | grep -q "^bat$"; then
 	bat cache --build
 fi
 
+echo 'delta'
 # delta
 if ! brew list --formula | grep -q "^git-delta$"; then
 	brew install git-delta
@@ -66,16 +69,19 @@ if ! brew list --formula | grep -q "^git-delta$"; then
 	wget -P "$CONFIG_DIR/delta/themes" https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig 
 fi
 
+echo 'fzf'
 # fzf
 if ! brew list --formula | grep -q "^fzf$"; then
 	brew install fzf
 fi
 
+echo 'oh-my-posh'
 # OMP
 if ! brew list --formula | grep -q "^oh-my-posh$"; then
 	brew install jandedobbeleer/oh-my-posh/oh-my-posh
 fi
 
+echo 'eza'
 # Eza
 if ! brew list --formula | grep -q "^eza$"; then
 	brew install eza
@@ -83,4 +89,3 @@ if ! brew list --formula | grep -q "^eza$"; then
 	mkdir -p "$CONFIG_DIR/eza"
 	wget -O "$CONFIG_DIR/eza/theme.yml" https://raw.githubusercontent.com/eza-community/eza-themes/refs/heads/main/themes/catppuccin.yml
 fi
-
