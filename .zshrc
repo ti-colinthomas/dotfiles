@@ -12,5 +12,8 @@ alias tree="eza --tree"
 # Setup key bindings
 eval "$(fzf --zsh)"
 
+# zoxide
+eval "$(zoxide init zsh --cmd cd)"
+
 # Source zshenv
 source ~/.zshenv

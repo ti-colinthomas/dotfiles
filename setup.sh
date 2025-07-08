@@ -95,3 +95,9 @@ if ! brew list --formula | grep -q "^eza$"; then
 	mkdir -p "$CONFIG_DIR/eza"
 	wget -O "$CONFIG_DIR/eza/theme.yml" https://raw.githubusercontent.com/eza-community/eza-themes/refs/heads/main/themes/catppuccin.yml
 fi
+
+echo 'zoxide'
+# OMP
+if ! brew list --formula | grep -q "^zoxide$"; then
+	brew install zoxide
+fi
