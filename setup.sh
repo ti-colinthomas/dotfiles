@@ -73,6 +73,7 @@ echo 'fzf'
 # fzf
 if ! brew list --formula | grep -q "^fzf$"; then
 	brew install fzf
+	chmod +x ~/.config/fzf/preview.sh
 fi
 
 echo 'fd'
