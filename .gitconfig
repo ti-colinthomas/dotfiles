@@ -19,6 +19,10 @@
 	side-by-side = false
 	navigate = true
 
+[diff]
+	tool = delta
+
+
 [merge]
 	conflictstyle = zdiff3
 
@@ -27,3 +31,7 @@
 
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	diff-changes = diff --name-status -r
+	diff-stat = diff --stat --ignore-space-change -r
+	diff-staged = diff --cached
+	diff-upstream = !git fetch origin && git diff master origin/master
