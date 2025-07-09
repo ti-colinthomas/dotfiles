@@ -1,3 +1,13 @@
 .git/
 node_modules/
+
+.cache/
+.zsh_sessions/
+.npm/
+.CFUserTextEncoding
+.lesshst
+.nvm/
+.Trash
+.terminfo
+
 .DS_Store
