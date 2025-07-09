@@ -108,3 +108,12 @@ echo 'Aerospace'
 if ! brew list --cask | grep -q "^aerospace$"; then
 	brew install --cask nikitabobko/tap/aerospace
 fi
+
+echo 'Tmux'
+# Tmux
+if ! brew list --formula | grep -q "^tmux$"; then
+	brew install tmux
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	mkdir "$CONFIG_DIR/tmux/themes"
+	git clone -b v2.1.3 https://github.com/catppuccin/tmux.git $CONFIG_DIR/tmux/themes
+fi

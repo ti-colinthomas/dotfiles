@@ -16,6 +16,8 @@ This setup script:
   - `oh-my-posh` for shell theming
   - `eza` (modern replacement for `ls`) with Catppuccin theme
   - `zoxide` for smarter `cd` navigation
+  - `aerospace` for a window manager
+  - `tmux` for terminal emulation
 - Installs Nerd Fonts:
   - Ubuntu Sans
   - Sauce Code Pro
