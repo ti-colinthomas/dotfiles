@@ -22,7 +22,7 @@ final_space = true
     style = 'plain'
     foreground = 'p:os'
     background = 'transparent'
-     template = '({{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) (gt .Behind 0) (gt .Ahead 0) }} {{ end }}{{ if or (.Working.Changed) (.Staging.Changed) }}<red>{{ end }}{{ if or (.Working.Changed) (.Staging.Changed) }}*</red>{{ end }}<cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>)'
+     template = ' ({{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) (gt .Behind 0) (gt .Ahead 0) }} {{ end }}{{ if or (.Working.Changed) (.Staging.Changed) }}<red>{{ end }}{{ if or (.Working.Changed) (.Staging.Changed) }}*</red>{{ end }}<cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>)'
 
     [blocks.segments.properties]
       commit_icon = '@'
