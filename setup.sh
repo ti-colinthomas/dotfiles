@@ -98,7 +98,13 @@ if ! brew list --formula | grep -q "^eza$"; then
 fi
 
 echo 'zoxide'
-# OMP
+# Zoxide
 if ! brew list --formula | grep -q "^zoxide$"; then
 	brew install zoxide
+fi
+
+echo 'Aerospace'
+# Aerospace
+if ! brew list --cask | grep -q "^aerospace$"; then
+	brew install --cask nikitabobko/tap/aerospace
 fi
