@@ -107,6 +107,8 @@ echo 'Aerospace'
 # Aerospace
 if ! brew list --cask | grep -q "^aerospace$"; then
 	brew install --cask nikitabobko/tap/aerospace
+	chmod +x ./config/aerospace/scripts/disable_displays_have_seperate_spaces.sh
+	/bin/bash -c ./config/aerospace/scripts/disable_displays_have_seperate_spaces.sh
 fi
 
 echo 'Tmux'
