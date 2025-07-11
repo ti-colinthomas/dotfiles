@@ -236,3 +236,5 @@ run = 'move-node-to-workspace S'
 if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace C'
 
+[workspace-to-monitor-force-assignment]
+T = ['secondary', 'main']
