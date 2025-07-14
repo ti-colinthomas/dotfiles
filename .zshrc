@@ -8,6 +8,10 @@ alias ls="eza"
 alias ll="eza --git --git-repos -alh"
 alias tree="eza --tree"
 
+# Tmux
+alias td="tmux detach"
+alias tl="tmux list-sessions"
+
 # fzf
 # Setup key bindings
 eval "$(fzf --zsh)"
