@@ -9,6 +9,7 @@ alias ll="eza --git --git-repos -alh"
 alias tree="eza --tree"
 
 # Tmux
+alias ta="tmux attach -d -t"
 alias td="tmux detach"
 alias tl="tmux list-sessions"
 
