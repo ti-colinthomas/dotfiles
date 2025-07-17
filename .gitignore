@@ -1,3 +1,6 @@
 # Tmux client and server logs
 tmux-client-*.log
 tmux-server-*.log
+
+# DS_Store
+.DS_Store
