@@ -7,8 +7,8 @@ opacity = 0.9
 decorations = "None"
 
 # dynamic_padding = true
-padding.x = 6
-padding.y = 1
+padding.x = 3
+padding.y = 5
 
 [cursor]
 style.shape = "Beam"
@@ -21,7 +21,7 @@ history = 100000
 
 [font]
 normal.family = "SauceCodePro Nerd Font Mono"
-size = 14.0
+size = 15.0
 
 [bell]
 animation = "Ease"
