@@ -69,6 +69,11 @@ log() {
     esac
 }
 
+# Check if Instance is ready
+is_vm_ready() {
+    multipass info $INSTANCE_NAME | grep --silent --regexp "State:\s*Running"
+}
+
 
 log info "Checking for existing Multipass instance: $INSTANCE_NAME "
 if multipass info "$INSTANCE_NAME" &>/dev/null; then
@@ -110,8 +115,8 @@ done
 log info "Updating and Upgrading packages "
 multipass exec "$INSTANCE_NAME" -- sudo apt update -y
 check_error "Failed to update packages."
-# multipass exec "$INSTANCE_NAME" -- sudo apt upgrade -y
-# check_error "Failed to upgrade packages."
+multipass exec "$INSTANCE_NAME" -- sudo apt upgrade -y
+check_error "Failed to upgrade packages."
 
 log info "Installing Zsh "
 multipass exec "$INSTANCE_NAME" -- sudo apt install -y zsh zsh-doc zsh-common
@@ -232,12 +237,7 @@ multipass exec "$INSTANCE_NAME" -- bash -c '
 '
 check_error "Failed to setup tpm"
 
-log info "APT sources do not contain latest release of neovim"
-log info "Script will now attempt to build neovim from source"
-multipass exec "$INSTANCE_NAME" -- bash -c '
-    read -p "Press enter to continue."
-'
-log info "Building neovim from source"
+log info "APT sources do not contain latest release of neovim. Script will now attempt to build neovim from source."
 multipass exec "$INSTANCE_NAME" -- bash -c '
     git clone https://github.com/neovim/neovim $HOME/build/neovim
     cd $HOME/build/neovim
@@ -247,6 +247,15 @@ multipass exec "$INSTANCE_NAME" -- bash -c '
     cd $HOME && rm -rf $HOME/build
 '
 check_error "Failed to install neovim"
+
+log info "Restarting VM"
+multipass exec "$INSTANCE_NAME" -- bash -c '
+    sudo reboot
+'
+log info "Waiting for VM to be ready."
+while ! is_vm_ready; do
+    sleep 5
+done
 
 log info "Setup complete for $INSTANCE_NAME!"
 log info "You can connect using: multipass shell $INSTANCE_NAME"
