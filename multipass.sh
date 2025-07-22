@@ -28,6 +28,8 @@ APT_PACKAGES=(
     "ripgrep"
     "eza"
     "tmux"
+    "build-essential"
+    "cmake"
 )
 
 check_error() {
@@ -229,6 +231,22 @@ multipass exec "$INSTANCE_NAME" -- bash -c '
     fi
 '
 check_error "Failed to setup tpm"
+
+log info "APT sources do not contain latest release of neovim"
+log info "Script will now attempt to build neovim from source"
+multipass exec "$INSTANCE_NAME" -- bash -c '
+    read -p "Press enter to continue."
+'
+log info "Building neovim from source"
+multipass exec "$INSTANCE_NAME" -- bash -c '
+    git clone https://github.com/neovim/neovim $HOME/build/neovim
+    cd $HOME/build/neovim
+    git checkout stable
+    make CMAKE_BUILD_TYPE=RelWithDebInfo
+    cd build && cpack -G DEB && sudo dpkg -i nvim-linux-$(dpkg --print-architecture).deb
+    cd $HOME && rm -rf $HOME/build
+'
+check_error "Failed to install neovim"
 
 log info "Setup complete for $INSTANCE_NAME!"
 log info "You can connect using: multipass shell $INSTANCE_NAME"

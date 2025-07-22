@@ -123,3 +123,9 @@ if ! brew list --formula | grep -q "^tmux$"; then
 	mkdir "$CONFIG_DIR/tmux/themes"
 	git clone -b v2.1.3 https://github.com/catppuccin/tmux.git $CONFIG_DIR/tmux/themes
 fi
+
+echo 'neovim'
+# Neovim
+if ! brew list --formula | grep -q "^neovim$"; then
+	brew install neovim
+fi

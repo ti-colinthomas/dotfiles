@@ -18,6 +18,7 @@ This setup script:
   - `zoxide` for smarter `cd` navigation
   - `aerospace` for a window manager
   - `tmux` for terminal emulation
+  - `neovim` for an IDE
 - Installs Nerd Fonts:
   - Ubuntu Sans
   - Sauce Code Pro
@@ -28,6 +29,7 @@ This setup script:
 - macOS
 - Git
 - Zsh
+- Multipass (If you are going to create a vm)
 
 ## Usage
 
