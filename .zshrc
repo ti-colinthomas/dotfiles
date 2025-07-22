@@ -7,7 +7,12 @@ fi
 alias ls="eza"
 alias ll="eza --git --git-repos -alh"
 alias tree="eza --tree"
-
+if command -v batcat &> /dev/null; then
+    alias bat='batcat'
+fi
+if command -v fdfind &> /dev/null; then
+    alias fd='fdfind'
+fi
 # Tmux
 # Function to attach to a tmux session or create a new one
 # Usage:
