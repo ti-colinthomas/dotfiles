@@ -39,3 +39,13 @@ cd ~/dotfiles
 chmod +x setup.sh
 ./setup.sh
 
+## Multipass
+
+Create a multipass vm and configure it for development. Edit the multipass file as necessary, it has some configuration items that need to be set.
+
+```bash
+git clone https://github.com/ti-colinthomas/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+chmod +x multipass.sh
+./multipass.sh
+```

@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# --- Begin configuration --
 # --- Configuration Variables ---
 INSTANCE_NAME="primary"
 MEM_SIZE="4G"
@@ -15,6 +15,8 @@ GUEST_PATHS=(
     "/home/ubuntu/code"
     "/home/ubuntu/dotfiles"
 )
+# --- End configuration --
+# --- For a basic setup, you don't need to change anything beyond this ---
 
 # List of additional APT packages to install
 APT_PACKAGES=(
