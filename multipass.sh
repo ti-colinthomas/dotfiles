@@ -21,6 +21,7 @@ GUEST_PATHS=(
 # List of additional APT packages to install
 APT_PACKAGES=(
     "unzip"
+    "git"
     "stow"
     "bat"
     "git-delta"
@@ -28,6 +29,7 @@ APT_PACKAGES=(
     "ripgrep"
     "eza"
     "tmux"
+    "xsel"
     "build-essential"
     "cmake"
 )
@@ -182,6 +184,8 @@ multipass exec "$INSTANCE_NAME" -- bash -c '
     echo "export EDITOR=\"vim\"" >> ~/.zprofile
     echo "# Setup fzf" >> ~/.zprofile
     echo "[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh" >> ~/.zprofile
+    echo "nvm use --lts" >> ~/.zprofile
+    echo "" >> ~/.zprofile
     echo "echo \"Welcome to your Multipass Dev Environment!\"" >> ~/.zprofile
 '
 check_error "Failed to write .zprofile."
@@ -236,6 +240,12 @@ multipass exec "$INSTANCE_NAME" -- bash -c '
     fi
 '
 check_error "Failed to setup tpm"
+
+log info "Installing nvm"
+multipass exec "$INSTANCE_NAME" -- bash -c '
+    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+'
+check_error "Failed to install nvm"
 
 log info "APT sources do not contain latest release of neovim. Script will now attempt to build neovim from source."
 multipass exec "$INSTANCE_NAME" -- bash -c '
