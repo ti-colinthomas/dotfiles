@@ -109,6 +109,12 @@ if ! brew list --formula | grep -q "^zoxide$"; then
 	brew install zoxide
 fi
 
+echo 'nvm'
+# Nvm
+if ! brew list --formula | grep -q "^nvm$"; then
+	brew install nvm
+fi
+
 echo 'Aerospace'
 # Aerospace
 if ! brew list --cask | grep -q "^aerospace$"; then
