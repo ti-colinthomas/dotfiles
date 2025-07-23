@@ -97,6 +97,12 @@ if ! brew list --formula | grep -q "^eza$"; then
 	wget -O "$CONFIG_DIR/eza/theme.yml" https://raw.githubusercontent.com/eza-community/eza-themes/refs/heads/main/themes/catppuccin.yml
 fi
 
+echo 'jq'
+# jq
+if ! brew list --formula | grep -q "^jq$"; then
+	brew install jq
+fi
+
 echo 'zoxide'
 # Zoxide
 if ! brew list --formula | grep -q "^zoxide$"; then

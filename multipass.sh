@@ -28,6 +28,7 @@ APT_PACKAGES=(
     "fd-find"
     "ripgrep"
     "eza"
+    "jq"
     "tmux"
     "xsel"
     "build-essential"
