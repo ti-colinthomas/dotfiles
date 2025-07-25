@@ -12,7 +12,7 @@ if [[ "$(cat /proc/device-tree/model 2>/dev/null)" == *"Raspberry Pi"* ]]; then
   else
     color="red"
   fi
-  echo "#[fg=cyan]$host | #[fg=$color]$temp_c°C"
+  echo "#[fg=blue]$host | #[fg=$color]$temp_c°C"
 else
-  echo "#[fg=cyan]$host"
+  echo "#[fg=blue]$host"
 fi
