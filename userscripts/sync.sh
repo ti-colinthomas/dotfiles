@@ -20,11 +20,20 @@ if [ ! -d "$DEST_DIR" ]; then
   fi
 fi
 
-# If SOURCE_DIR is empty, also clear the DEST_DIR
-if ! fd -e js -d 1 --full-path "$SOURCE_DIR" | grep -q .; then
-  cd "$DEST_DIR"
-  rm -rfv *.js
-fi
+# # If SOURCE_DIR is empty, also clear the DEST_DIR
+# if ! fd -e js -d 1 --full-path "$SOURCE_DIR" | grep -q .; then
+#   cd "$DEST_DIR"
+#   rm -rfv *.js
+# fi
+
+# Cleanup DEST_DIR
+cd "$DEST_DIR"
+echo "Removing old scripts"
+echo "---"
+rm -rfv *.js
+
+echo ""
+echo ""
 
 echo "Creating symlinks from '$SOURCE_DIR' to '$DEST_DIR'..."
 echo "---"

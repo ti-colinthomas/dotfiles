@@ -5,13 +5,14 @@
 // @description  Blocks new tab popups and redirects on toongod.org
 // @author       You
 // @match        *://toongod.org/*
+// @match        *://novelfire.net/*
 // @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
 
-    console.log("🚫 Toongod Popup Blocker Active");
+    console.log("🚫 Ads & Popup Blocker Active");
 
     // 1. Override window.open
     window.open = function() {
@@ -31,19 +32,24 @@
         }
     });
 
-    // 2. Remove target="_blank" to prevent new tabs
-    const removeBlankTargets = () => {
-        document.querySelectorAll('a[target="_blank"]').forEach(link => {
-            link.removeAttribute('target');
-        });
+    // 2. Remove ads from dom
+    const removeAdTargets = () => {
+      document.querySelectorAll('a[target="_blank"]').forEach(link => {
+          link.removeAttribute('target');
+      });
+
+      document.querySelectorAll('div.nf-ads').forEach(div => {
+        div.style.display = 'none';
+        div.remove();
+      });
     };
 
     // Initial cleanup
-    removeBlankTargets();
+    removeAdTargets();
 
     // 3. Re-run cleanup periodically in case links are added dynamically
     const observer = new MutationObserver(() => {
-        removeBlankTargets();
+        removeAdTargets();
     });
     observer.observe(document.body, { childList: true, subtree: true });
 
