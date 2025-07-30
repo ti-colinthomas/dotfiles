@@ -32,7 +32,7 @@
 
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	ls = status
+	ls = !git fetch && git status
 	diff-changes = diff --name-status -r
 	diff-stat = diff --stat --ignore-space-change -r
 	diff-staged = diff --cached
