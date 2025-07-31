@@ -36,4 +36,4 @@
 	diff-changes = diff --name-status -r
 	diff-stat = diff --stat --ignore-space-change -r
 	diff-staged = diff --cached
-	diff-upstream = !git fetch origin && git diff master origin/master
+	diff-upstream = !git fetch origin && git diff main origin/main
