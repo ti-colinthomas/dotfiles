@@ -3,6 +3,11 @@ if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.toml)"
 fi
 
+# Fix for ERROR: missing or unsuitable terminal: xterm-ghostty
+if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
+    export TERM=xterm-256color
+fi
+
 # Alias
 alias ls="eza"
 alias ll="eza --git --git-repos -alh"
