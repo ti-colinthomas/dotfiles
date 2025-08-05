@@ -8,3 +8,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank()
   end,
 })
+
+-- Enable the sign column when in a git repository
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        local git_dir = vim.fn.finddir(".git", ".;")
+        if git_dir ~= "" then
+            vim.opt.signcolumn = "yes"
+        else
+            vim.opt.signcolumn = "auto"
+        end
+    end,
+})
