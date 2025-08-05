@@ -21,8 +21,8 @@ fi
 # Tmux
 # Function to attach to a tmux session or create a new one
 # Usage:
-#   tma                 # Attaches to the last active session, or creates a new one named 'default'
-#   tma my_session      # Attaches to 'my_session' if it exists, otherwise creates it
+#   tn                 # Attaches to the last active session, or creates a new one named 'default'
+#   tn my_session      # Attaches to 'my_session' if it exists, otherwise creates it
 
 tn() {
   local session_name="$1"
