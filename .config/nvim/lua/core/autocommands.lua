@@ -20,3 +20,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
         end
     end,
 })
+
+-- -- Callback on exiting vim
+-- vim.api.nvim_create_autocmd("VimLeave", {
+--     callback = function()
+--         -- Reset cursor to blinking line (adjust for your terminal)
+--         vim.fn.system("printf '\\e[5 q'")
+--     end,
+-- })

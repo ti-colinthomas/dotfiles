@@ -10,11 +10,11 @@ decorations = "Buttonless"
 padding.x = 6
 padding.y = 6
 
-[cursor]
-style.shape = "Beam"
-style.blinking = "Always"
-blink_interval = 200
-blink_timeout = 0
+# [cursor]
+# style.shape = "Beam"
+# style.blinking = "Always"
+# blink_interval = 200
+# blink_timeout = 0
 
 [scrolling]
 history = 100000
