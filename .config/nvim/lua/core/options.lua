@@ -1,14 +1,12 @@
--- Set the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+-- Leader keys
+vim.g.mapleader = ' '                   -- Set the leader key
+vim.g.maplocalleader = ' '              -- Set the local leader key
 
--- Nerd fonts
-vim.g.have_nerd_font = true
+vim.g.have_nerd_font = true             -- Nerd fonts installed
 
--- Make line numbers default
-vim.o.number = true
--- relative
-vim.o.relativenumber = true
+-- Line numbers
+vim.o.number = true                     -- Show line numbers
+vim.o.relativenumber = true             -- Show relative numbers
 
 -- Sync clipboard between OS and Neovim.
 -- Schedule the setting after `UiEnter` because it can increase startup-time.
@@ -18,33 +16,36 @@ vim.schedule(function()
 end)
 
 -- Tab size
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+vim.opt.tabstop = 2                     -- How many spaces are shown per Tab
+vim.opt.softtabstop = 2                 -- How many spaces are applied when pressing Tab
+vim.opt.shiftwidth = 2                  -- Amount to indent with << and >>
+vim.opt.expandtab = true                -- Convert tabs to spaces
 
--- Highlight the light the cursor is on
-vim.opt.cursorline = true
+vim.opt.breakindent = true              -- Every wrapped line will continue visually indented
+
+vim.opt.cursorline = true               -- Highlight the line the cursor is on
 
 vim.opt.termguicolors = true
 
--- Don't show mode
-vim.opt.showmode = false
+vim.opt.showmode = false                -- Don't show vim mode
 
--- Save undo history
-vim.opt.undofile = true
+vim.opt.undofile = true                 -- Save undo history between sessions
 
--- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- If performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.opt.confirm = true
 
 -- Search options
+-- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- Show a pane at the bottom for previewing search and replace operations
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = 'split'            -- Show a pane at the bottom for previewing search and replace operations
 
--- default border for floating windowd
-vim.opt.winborder = 'rounded'
+vim.opt.winborder = 'rounded'           -- default border for floating windowd
+
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
+vim.opt.scrolloff = 5                   -- Minimal number of screen lines to keep above and below the cursor.
