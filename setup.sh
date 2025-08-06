@@ -127,6 +127,12 @@ if ! brew list --cask | grep -q "^aerospace$"; then
 	# /bin/bash -c ./config/aerospace/scripts/disable_displays_have_seperate_spaces.sh
 fi
 
+echo 'Ripgrep'
+# Ripgrep
+if ! brew list --formula | grep -q "^ripgrep$"; then
+	brew install ripgrep
+fi
+
 echo 'Tmux'
 # Tmux
 if ! brew list --formula | grep -q "^tmux$"; then
