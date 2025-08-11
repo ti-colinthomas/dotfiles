@@ -4,9 +4,11 @@ vim.g.maplocalleader = ' '              -- Set the local leader key
 
 vim.g.have_nerd_font = true             -- Nerd fonts installed
 
+vim.opt.title = true                    -- Use current buffer name and path for window title
+
 -- Line numbers
-vim.o.number = true                     -- Show line numbers
-vim.o.relativenumber = true             -- Show relative numbers
+vim.opt.number = true                   -- Show line numbers
+vim.opt.relativenumber = true           -- Show relative numbers
 
 -- Sync clipboard between OS and Neovim.
 -- Schedule the setting after `UiEnter` because it can increase startup-time.
