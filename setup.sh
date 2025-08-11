@@ -145,5 +145,5 @@ fi
 echo 'neovim'
 # Neovim
 if ! brew list --formula | grep -q "^neovim$"; then
-  brew install neovim
+  brew install neovim lua-langauge-server
 fi
