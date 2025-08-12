@@ -13,10 +13,14 @@ return {
           },
         },
       },
+      {
+        "mason-org/mason.nvim",
+        opts = {}
+      },
     },
     config = function()
       require("lspconfig").lua_ls.setup {}
+      require("lspconfig").ts_ls.setup {}
     end,
-    event = "VeryLazy"
   }
 }
