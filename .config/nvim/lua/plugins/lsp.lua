@@ -21,6 +21,7 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
 
+      -- Keymaps
       local on_attach = function(_, bufnr)
         local opts = { buffer = bufnr, silent = true }
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)

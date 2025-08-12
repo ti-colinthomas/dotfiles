@@ -9,3 +9,8 @@ vim.keymap.set('n', 'da', '<cmd>:%d<CR>', { desc = 'Delete all' })
 
 -- Indent the complete buffer
 vim.keymap.set('n', '==', '<cmd>:normal ggVG=<CR>', { desc = 'Indent buffer' })
+
+
+-- Additionally check the following plugins for keymapping
+-- plugins/lsp.lua
+-- plugins/treesitter.lua

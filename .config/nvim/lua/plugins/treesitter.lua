@@ -29,6 +29,7 @@ return {
         "gitignore"
       },
 
+      -- Assigning tt as keymap for incremental selection
       incremental_selection = {
         enable = true,
         keymaps = {
