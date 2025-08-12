@@ -8,11 +8,8 @@ cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
 
-# window-decoration = none
 window-decoration = true
 window-padding-x = 5
-window-padding-y = 5
-# window-position-x = 0
-# window-position-y = 0
+window-padding-y = 0
 window-width = 120
 window-height = 35
