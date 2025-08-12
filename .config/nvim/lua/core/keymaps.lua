@@ -8,8 +8,7 @@ vim.keymap.set('n', 'ca', '<cmd>:%c<CR><Esc>i', { desc = 'Change all' })
 vim.keymap.set('n', 'da', '<cmd>:%d<CR>', { desc = 'Delete all' })
 
 -- Indent the complete buffer
-vim.keymap.set('n', '==', '<cmd>:normal ggVG=<CR>', { desc = 'Indent buffer' })
-
+vim.keymap.set('n', '==', 'mzgg=G`z', { desc = 'Indent buffer' })
 
 -- Additionally check the following plugins for keymapping
 -- plugins/lsp.lua
