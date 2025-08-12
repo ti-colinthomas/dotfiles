@@ -31,6 +31,8 @@ return {
         vim.keymap.set("n", "gca", vim.lsp.buf.code_action, opts)
       end
       local capabilities = vim.lsp.protocol.make_client_capabilities()
+      -- TODO: Need to check what this does
+      -- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
       lspconfig.lua_ls.setup ({
         on_attach = on_attach,
