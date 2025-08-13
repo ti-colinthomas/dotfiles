@@ -8,6 +8,7 @@ vim.keymap.set('n', 'caa', '<cmd>:%c<CR><Esc>i', { desc = 'Change all' })
 vim.keymap.set('n', 'daa', '<cmd>:%d<CR>', { desc = 'Delete all' })
 
 -- Indent the complete buffer
+-- TODO: Code formatting needs to be integrated with the LSP
 vim.keymap.set('n', '==', 'mzgg=G`z', { desc = 'Indent buffer' })
 
 -- Show open buffers
