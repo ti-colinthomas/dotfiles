@@ -23,16 +23,37 @@ return {
       local lspconfig = require("lspconfig")
 
       -- Configure diagnostics
-      vim.diagnostic.config({
+      -- See :help vim.diagnostic.Opts
+      vim.diagnostic.config {
+        severity_sort = true, -- Sort diagnostics by severity
+        float = { border = 'rounded', source = 'if_many' },
+        underline = { severity = vim.diagnostic.severity.ERROR }, -- Only underline errors
+        -- Configure signs for diagnostics, using nerd fonts if available
+        -- TODO: Add icons when nerd fonts not available
+        signs = vim.g.have_nerd_font and {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '󰅚 ',
+            [vim.diagnostic.severity.WARN] = '󰀪 ',
+            [vim.diagnostic.severity.INFO] = '󰋽 ',
+            [vim.diagnostic.severity.HINT] = '󰌶 ',
+          },
+        } or {}, -- Use empty table if nerd fonts not available
         virtual_text = {
           prefix = "●",  -- Customize the prefix symbol
-          spacing = 2,    -- Space between the prefix and the message
+          source = 'if_many', -- Show the source of the diagnostic if there are multiple sources
+          spacing = 2,
+          format = function(diagnostic) -- Function to format the virtual text
+            local diagnostic_message = {
+              [vim.diagnostic.severity.ERROR] = diagnostic.message,
+              [vim.diagnostic.severity.WARN] = diagnostic.message,
+              [vim.diagnostic.severity.INFO] = diagnostic.message,
+              [vim.diagnostic.severity.HINT] = diagnostic.message,
+            }
+            return diagnostic_message[diagnostic.severity]
+          end,
         },
-        signs = true,        -- Show signs in the sign column
-        underline = true,    -- Underline problematic text
         update_in_insert = false, -- Don't update diagnostics while typing
-        severity_sort = true, -- Sort diagnostics by severity
-      })
+      }
 
       -- Keymaps
       local on_attach = function(_, bufnr)
