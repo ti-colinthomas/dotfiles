@@ -22,6 +22,18 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
 
+      -- Configure diagnostics
+      vim.diagnostic.config({
+        virtual_text = {
+          prefix = "●",  -- Customize the prefix symbol
+          spacing = 2,    -- Space between the prefix and the message
+        },
+        signs = true,        -- Show signs in the sign column
+        underline = true,    -- Underline problematic text
+        update_in_insert = false, -- Don't update diagnostics while typing
+        severity_sort = true, -- Sort diagnostics by severity
+      })
+
       -- Keymaps
       local on_attach = function(_, bufnr)
         local opts = { buffer = bufnr, silent = true }
@@ -34,7 +46,7 @@ return {
       -- TODO: Need to check what this does
       -- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-      lspconfig.lua_ls.setup ({
+      lspconfig.lua_ls.setup({
         on_attach = on_attach,
         capabilities = capabilities,
         settings = {
