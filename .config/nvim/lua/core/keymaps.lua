@@ -14,6 +14,10 @@ vim.keymap.set('n', '==', 'mzgg=G`z', { desc = 'Indent buffer' })
 -- Cycle open buffers
 vim.keymap.set("n", "<Tab>", "<cmd>:bnext<CR>", { desc = "Show next open buffer" })
 
+-- Increment / decrement
+vim.keymap.set("n", "+", "<C-a>", { desc = "Increment" })
+vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement" })
+
 -- Additionally check the following plugins for keymapping
 -- plugins/lsp.lua
 -- plugins/treesitter.lua
