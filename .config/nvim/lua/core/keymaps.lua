@@ -11,7 +11,7 @@ vim.keymap.set('n', 'daa', '<cmd>:%d<CR>', { desc = 'Delete all' })
 -- TODO: Code formatting needs to be integrated with the LSP
 vim.keymap.set('n', '==', 'mzgg=G`z', { desc = 'Indent buffer' })
 
--- Show open buffers
+-- Cycle open buffers
 vim.keymap.set("n", "<Tab>", "<cmd>:bnext<CR>", { desc = "Show next open buffer" })
 
 -- Additionally check the following plugins for keymapping
