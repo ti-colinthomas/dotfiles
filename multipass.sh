@@ -185,7 +185,6 @@ echo "export PATH=\"\$HOME/.local/bin:\$PATH\"" >> ~/.zprofile
 echo "export EDITOR=\"vim\"" >> ~/.zprofile
 echo "# Setup fzf" >> ~/.zprofile
 echo "[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh" >> ~/.zprofile
-echo "nvm use --lts" >> ~/.zprofile
 echo "" >> ~/.zprofile
 echo "echo \"Welcome to your Multipass Dev Environment!\"" >> ~/.zprofile
 '
@@ -245,6 +244,11 @@ check_error "Failed to setup tpm"
 log info "Installing nvm"
 multipass exec "$INSTANCE_NAME" -- bash -c '
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm install --lts
+echo -e "NVM_DIR=\"$HOME\/.nvm\"" >> ~/.zprofile
+echo -e "[ -s \"NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR\/nvm.sh\"" >> ~/.zprofile
 '
 check_error "Failed to install nvm"
 
