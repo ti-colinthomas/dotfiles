@@ -8,7 +8,7 @@ decorations = "Buttonless"
 
 # dynamic_padding = true
 padding.x = 6
-padding.y = 6
+padding.y = 0
 
 # [cursor]
 # style.shape = "Beam"
