@@ -10,7 +10,7 @@ This setup script:
 - Uses [GNU Stow](https://www.gnu.org/software/stow/) to manage dotfiles
 - Installs and configures:
   - `bat` with [Catppuccin Mocha](https://github.com/catppuccin/bat) theme
-  - `delta` with [Catppuccin Delta](https://github.com/catppuccin/delta) theme
+  - `delta` with [Catppuccin Mocha](https://github.com/catppuccin/delta) theme
   - `fzf` with preview script support
   - `fd` for fast file finding
   - `oh-my-posh` for shell theming
@@ -26,12 +26,11 @@ This setup script:
 
 ## Prerequisites
 
-- macOS
 - Git
 - Zsh
 - Multipass (If you are going to create a vm)
 
-## Usage
+## macOS
 
 Clone this repository into your home directory (or symlink it as needed):
 
@@ -44,7 +43,7 @@ chmod +x setup.sh
 
 ## Multipass
 
-Create a multipass vm and configure it for development. Edit the multipass file as necessary, it has some configuration items that need to be set.
+Create a multipass vm and configure it for development. Edit the multipass file as necessary, it has some configuration variables that need to be set.
 
 ```bash
 git clone https://github.com/ti-colinthomas/dotfiles.git ~/dotfiles
