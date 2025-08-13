@@ -4,3 +4,6 @@ tmux-server-*.log
 
 # DS_Store
 .DS_Store
+
+# Fuse hidden files
+*.fuse_hidden*
