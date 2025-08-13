@@ -13,3 +13,4 @@ vim.keymap.set('n', '==', 'mzgg=G`z', { desc = 'Indent buffer' })
 -- Additionally check the following plugins for keymapping
 -- plugins/lsp.lua
 -- plugins/treesitter.lua
+-- plugins/telescope.lua
