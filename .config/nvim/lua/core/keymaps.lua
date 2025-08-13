@@ -18,6 +18,9 @@ vim.keymap.set("n", "<Tab>", "<cmd>:bnext<CR>", { desc = "Show next open buffer"
 vim.keymap.set("n", "+", "<C-a>", { desc = "Increment" })
 vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement" })
 
+-- Esc does not work well on termius on iPad
+-- Adding this to allow for usage on iPad
+vim.keymap.set("i", "jj", "<Esc>", { noremap = false })
 -- Additionally check the following plugins for keymapping
 -- plugins/lsp.lua
 -- plugins/treesitter.lua
