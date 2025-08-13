@@ -10,6 +10,9 @@ vim.keymap.set('n', 'daa', '<cmd>:%d<CR>', { desc = 'Delete all' })
 -- Indent the complete buffer
 vim.keymap.set('n', '==', 'mzgg=G`z', { desc = 'Indent buffer' })
 
+-- Show open buffers
+vim.keymap.set("n", "<Tab>", "<cmd>:bnext<CR>", { desc = "Show next open buffer" })
+
 -- Additionally check the following plugins for keymapping
 -- plugins/lsp.lua
 -- plugins/treesitter.lua
