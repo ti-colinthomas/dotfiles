@@ -9,6 +9,7 @@ vim.keymap.set('n', 'daa', '<cmd>:%d<CR>', { desc = 'Delete all' })
 
 -- Indent the complete buffer
 -- TODO: Code formatting needs to be integrated with the LSP
+-- FIXME: Moves the position of the cursor while indenting
 vim.keymap.set('n', '==', 'mzgg=G`z', { desc = 'Indent buffer' })
 
 -- Cycle open buffers
@@ -18,6 +19,11 @@ vim.keymap.set("n", "<S-Tab>", "<cmd>:bprev<CR>", { desc = "Show next open buffe
 -- Increment / decrement
 vim.keymap.set("n", "+", "<C-a>", { desc = "Increment" })
 vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement" })
+
+-- TODO: Terminal
+vim.keymap.set("n", "sh", function ()
+  print("Launch a terminal")
+end, { desc = "Launch a terminal" })
 
 -- Esc does not work well on termius on iPad
 -- Adding this to allow for usage on iPad
