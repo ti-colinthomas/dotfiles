@@ -21,9 +21,9 @@ end
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.hl.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
     vim.hl.on_yank()
   end,
@@ -50,8 +50,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
       if initial_tmux_window_name == "" then
         initial_tmux_window_name = get_tmux_window_name()
       end
-      local filename = vim.fn.expand('%:t')  -- Get the current file name
-      if filename ~= '' then
+      local filename = vim.fn.expand("%:t")  -- Get the current file name
+      if filename ~= "" then
         os.execute("tmux rename-window " .. filename)
       end
     end

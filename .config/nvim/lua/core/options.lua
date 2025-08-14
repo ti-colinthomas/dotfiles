@@ -1,6 +1,6 @@
 -- Leader keys
-vim.g.mapleader = ' '                   -- Set the leader key
-vim.g.maplocalleader = ' '              -- Set the local leader key
+vim.g.mapleader = " "                   -- Set the leader key
+vim.g.maplocalleader = " "              -- Set the local leader key
 
 vim.g.have_nerd_font = true             -- Nerd fonts installed
 
@@ -12,9 +12,9 @@ vim.opt.relativenumber = true           -- Show relative numbers
 
 -- Sync clipboard between OS and Neovim.
 -- Schedule the setting after `UiEnter` because it can increase startup-time.
--- See `:help 'clipboard'`
+-- See `:help "clipboard"`
 vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
+  vim.o.clipboard = "unnamedplus"
 end)
 
 -- Tab size
@@ -35,7 +35,7 @@ vim.opt.undofile = true                 -- Save undo history between sessions
 
 -- If performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
--- See `:help 'confirm'`
+-- See `:help "confirm"`
 vim.opt.confirm = true
 
 -- Search options
@@ -43,9 +43,9 @@ vim.opt.confirm = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-vim.opt.inccommand = 'split'            -- Show a pane at the bottom for previewing search and replace operations
+vim.opt.inccommand = "split"            -- Show a pane at the bottom for previewing search and replace operations
 
-vim.opt.winborder = 'rounded'           -- default border for floating windowd
+vim.opt.winborder = "rounded"           -- default border for floating windowd
 
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }

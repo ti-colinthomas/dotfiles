@@ -12,13 +12,13 @@ return {
         theme = "catppuccin",
       },
       sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_a = {"mode"},
+        lualine_b = {"branch", "diff", "diagnostics"},
         lualine_c = {},
-        lualine_x = {'filetype'},
-        -- lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_x = {"filetype"},
+        -- lualine_x = {"encoding", "fileformat", "filetype"},
         lualine_y = {},
-        lualine_z = {'location'}
+        lualine_z = {"location"}
       },
     })
 

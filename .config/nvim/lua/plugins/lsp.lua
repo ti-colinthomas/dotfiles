@@ -26,21 +26,21 @@ return {
       -- See :help vim.diagnostic.Opts
       vim.diagnostic.config {
         severity_sort = true, -- Sort diagnostics by severity
-        float = { border = 'rounded', source = 'if_many' },
+        float = { border = "rounded", source = "if_many" },
         underline = { severity = vim.diagnostic.severity.ERROR }, -- Only underline errors
         -- Configure signs for diagnostics, using nerd fonts if available
         -- TODO: Add icons when nerd fonts not available
         signs = vim.g.have_nerd_font and {
           text = {
-            [vim.diagnostic.severity.ERROR] = '󰅚 ',
-            [vim.diagnostic.severity.WARN] = '󰀪 ',
-            [vim.diagnostic.severity.INFO] = '󰋽 ',
-            [vim.diagnostic.severity.HINT] = '󰌶 ',
+            [vim.diagnostic.severity.ERROR] = "󰅚 ",
+            [vim.diagnostic.severity.WARN] = "󰀪 ",
+            [vim.diagnostic.severity.INFO] = "󰋽 ",
+            [vim.diagnostic.severity.HINT] = "󰌶 ",
           },
         } or {}, -- Use empty table if nerd fonts not available
         virtual_text = {
           prefix = "●",  -- Customize the prefix symbol
-          source = 'if_many', -- Show the source of the diagnostic if there are multiple sources
+          source = "if_many", -- Show the source of the diagnostic if there are multiple sources
           spacing = 2,
           format = function(diagnostic) -- Function to format the virtual text
             local diagnostic_message = {

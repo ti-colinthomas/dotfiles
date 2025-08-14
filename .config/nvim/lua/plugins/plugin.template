@@ -1,10 +1,10 @@
 return {
   "github/repo",
-  option1,
-  config = function()
-    require("ca").setup({
-    })
+    option1,
+    config = function()
+      require("ca").setup({
+          })
 
-    other vim cmd
-  end
+  other vim cmd
+    end
 }
