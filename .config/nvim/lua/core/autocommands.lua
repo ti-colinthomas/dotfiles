@@ -1,22 +1,6 @@
--- Function to check if neovim is running in tmux
-local function is_running_in_tmux()
-  return os.getenv("TMUX") ~= nil
-end
-
 -- Variable to store the initial tmux window name
 local initial_tmux_window_name = ""
-
--- Function to get the current tmux window name
-local function get_tmux_window_name()
-  local handle = io.popen("tmux display-message -p '#W'")  -- Get the current window name
-  if handle ~= nil then
-    local result = handle:read("*a")
-    handle:close()
-    return result:gsub("%s+", "")  -- Trim whitespace
-  else
-    return "tmux"
-  end
-end
+local tmux_utils = require("custom.tmux_utils")
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
@@ -46,9 +30,9 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
     -- Rename the tmux window based on file opened in neovim
-    if is_running_in_tmux() then
+    if tmux_utils.is_tmux_active() then
       if initial_tmux_window_name == "" then
-        initial_tmux_window_name = get_tmux_window_name()
+        initial_tmux_window_name = tmux_utils.get_tmux_window_name()
       end
       local filename = vim.fn.expand("%:t")  -- Get the current file name
       if filename ~= "" then
