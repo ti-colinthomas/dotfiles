@@ -49,7 +49,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.api.nvim_create_autocmd("VimLeave", {
   callback = function()
     -- Change tmux window name back to initial name
-    if is_running_in_tmux() then
+    if tmux_utils.is_tmux_active() then
       os.execute("tmux rename-window " .. initial_tmux_window_name)
     end
   end,
