@@ -13,7 +13,7 @@
   'use strict';
   const elementsToBeRemoved = [
     "div.code-block",
-    "div.bixbox",
+    "div.chapterbody div.bixbox",
     "div.chaptertags",
     "div#footer"
   ]
