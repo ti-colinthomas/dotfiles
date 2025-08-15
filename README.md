@@ -1,6 +1,7 @@
 # Dotfiles Setup
 
-A macOS-friendly bootstrap script for setting up a modern terminal environment using Homebrew, GNU Stow, and various developer productivity tools.
+Sets up my development environment on MacOS and multipass VMs.
+Use the bare minimum of plugins for applications like vim and tmux.
 
 ## Features
 
