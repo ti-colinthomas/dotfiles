@@ -21,6 +21,7 @@ require("lazy").setup({
     -- import your plugins
     { import = "plugins" },
   },
+  change_detection = { notify = false }, -- Will stop the notification on every save that config was reloaded
   -- Configure any other settings here. See the documentation for more details.
   install = { colorscheme = { "catppuccin" } },
   checker = {
