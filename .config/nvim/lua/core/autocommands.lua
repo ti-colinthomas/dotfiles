@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
     -- Rename the tmux window based on file opened in neovim
     if tmux_utils.is_tmux_active() then
       if initial_tmux_window_name == "" then
-        initial_tmux_window_name = tmux_utils.get_tmux_window_name()
+        initial_tmux_window_name = tmux_utils.tmux_window_name()
       end
       local filename = vim.fn.expand("%:t")  -- Get the current file name
       if filename ~= "" then

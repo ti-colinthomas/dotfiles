@@ -21,7 +21,7 @@ function M.tmux_session_name()
 end
 
 -- Function to get the current tmux window name
-function M.get_tmux_window_name()
+function M.tmux_window_name()
   local handle = io.popen("tmux display-message -p '#W'")  -- Get the current window name
   if handle ~= nil then
     local result = handle:read("*a")

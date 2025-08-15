@@ -9,7 +9,7 @@ return {
       -- Set the b section for lualine
       local section_b = {}
       if tmux_utils.is_tmux_active() then
-        section_b = {tmux_utils.tmux_window_name, "branch", "diff", "diagnostics"}
+        section_b = {tmux_utils.tmux_session_name, "branch", "diff", "diagnostics"}
       else
         section_b = {"branch", "diff", "diagnostics"}
       end
