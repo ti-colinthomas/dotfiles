@@ -26,7 +26,8 @@ return {
         "bash",
         "dockerfile",
         "vim",
-        "gitignore"
+        "gitignore",
+        "regex"
       },
 
       -- Assigning tt as keymap for incremental selection
