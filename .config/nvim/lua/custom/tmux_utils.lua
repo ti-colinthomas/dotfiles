@@ -7,7 +7,7 @@ end
 
 -- Function to get the current tmux session name
 function M.tmux_session_name()
-  local devicons = require'nvim-web-devicons'
+  local devicons = require"nvim-web-devicons"
   local icon, color = devicons.get_icon("tmux.conf", nil, { default = true })  -- Get the tmux icon
   local handle = io.popen("tmux display-message -p '#S'")  -- Get the current session name
   if handle ~= nil then
