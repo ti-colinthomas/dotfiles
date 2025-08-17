@@ -43,8 +43,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
   desc = "Change tmux window name based on the opened file"
 })
 
-
-
 -- If tmux was renamed to filename, change it back to previous name
 vim.api.nvim_create_autocmd("VimLeave", {
   callback = function()
@@ -52,5 +50,14 @@ vim.api.nvim_create_autocmd("VimLeave", {
     if tmux_utils.is_tmux_active() then
       os.execute("tmux rename-window " .. initial_tmux_window_name)
     end
+  end,
+})
+
+-- Action on file save
+-- Trigger notification
+vim.api.nvim_create_autocmd("BufWritePost", {
+  callback = function(args)
+    local file = vim.fn.fnamemodify(args.file, ":t")
+    vim.notify("Saved " .. file, vim.log.levels.INFO)
   end,
 })
