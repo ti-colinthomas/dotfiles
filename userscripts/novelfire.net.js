@@ -9,27 +9,31 @@
 // ==/UserScript==
 
 (function() {
-    'use strict';
-
-    console.log("🚫 Ads ");
-
-    // 1. Remove ads from dom
-    const removeAdTargets = () => {
-      document.querySelectorAll('div.nf-ads').forEach(div => {
-        div.style.display = 'none';
+  'use strict';
+  // 1. Remove ads from dom
+  const elementsToBeRemoved = [
+    "div.nf-ads",
+    "div.chapter-comments",
+    "div.box-notice",
+    "div.report-container",
+    "div.box-notification",
+    "footer"
+  ]
+  const removeAdTargets = () => {
+    elementsToBeRemoved.forEach(e => {
+      document.querySelectorAll(e).forEach(div => {
         div.remove();
       });
-    };
-
-    // Initial cleanup
-    console.log("Removing ads initially");
-    removeAdTargets();
-
-    // 3. Re-run cleanup periodically in case links are added dynamically
-    const observer = new MutationObserver(() => {
-      console.log("Removing ads on page mutation");
-      removeAdTargets();
     });
-    observer.observe(document.body, { childList: true, subtree: true });
+  };
+
+  // Initial cleanup
+  removeAdTargets();
+
+  // 3. Re-run cleanup periodically in case links are added dynamically
+  const observer = new MutationObserver(() => {
+    removeAdTargets();
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
 })();
 
