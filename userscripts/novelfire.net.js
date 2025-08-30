@@ -13,6 +13,7 @@
   // 1. Remove ads from dom
   const elementsToBeRemoved = [
     "div.nf-ads",
+    "div#modal",
     "div.chapter-comments",
     "div.box-notice",
     "div.report-container",
