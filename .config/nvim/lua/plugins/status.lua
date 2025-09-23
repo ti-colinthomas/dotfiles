@@ -18,12 +18,20 @@ return {
       lualine.setup({
         options = {
           theme = "auto",
-          section_separators = { left = "", right = "" },
+          section_separators = { left = "", right = "|" },
           component_separators = { left = "", right = "" }
         },
+        -- sections = {
+        --   lualine_a = {"mode"},
+        --   lualine_b = section_b,
+        --   lualine_c = {},
+        --   lualine_x = {"filetype"},
+        --   lualine_y = {},
+        --   lualine_z = {"location"}
+        -- }
         sections = {
           lualine_a = {"mode"},
-          lualine_b = section_b,
+          lualine_b = {"branch", "diff", "diagnostics"},
           lualine_c = {},
           lualine_x = {"filetype"},
           lualine_y = {},
