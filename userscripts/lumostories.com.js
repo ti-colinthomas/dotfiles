@@ -38,13 +38,17 @@
     audioButton.style.top = "180px";
     console.log("Moved buttons")
   };
-  
+
   // Re-run cleanup periodically in case links are added dynamically
   const observer = new MutationObserver(() => {
     removeAdTargets();
     moveElements();
   });
   observer.observe(document.body, { childList: true, subtree: true });
+
+  // From chatgpt.
+  // Enables double click to select text
+  (function(){var s=document.createElement('style');s.textContent='*{user-select:text !important;-webkit-user-select:text !important;-moz-user-select:text !important;}';document.head.appendChild(s);document.querySelectorAll('*').forEach(function(el){el.onmousedown=null;el.onselectstart=null;el.ondblclick=null;});})();
 
 })();
 
